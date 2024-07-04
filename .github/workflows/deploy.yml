@@ -1,4 +1,4 @@
-name: Deploy Minecraft Server
+name: Deploy Minecraft Server on AWS
 
 on:
   push:
@@ -30,4 +30,7 @@ jobs:
         run: |
           chmod +x create_ec2_instance.sh install_minecraft_server.sh run_ssm_command.sh setup_minecraft_server.sh
           ./setup_minecraft_server.sh
+
+
+
 
