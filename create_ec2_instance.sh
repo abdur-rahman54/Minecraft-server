@@ -1,7 +1,12 @@
 #!/bin/bash
 
 # Use the existing security group from GitHub Secrets
+AMI_ID=$AMI_ID
+INSTANCE_TYPE=$INSTANCE_TYPE
+KEY_NAME=$KEY_PAIR_NAME
 SECURITY_GROUP_NAME=$SECURITY_GROUP_NAME
+
+# Creating Security Group ID
 SECURITY_GROUP_ID=$(aws ec2 describe-security-groups --group-names $SECURITY_GROUP_NAME --query 'SecurityGroups[0].GroupId' --output text)
 
 # Launch an EC2 instance
