@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Use the existing security group from GitHub Secrets
-AMI_ID=$IMAGE_ID
-INSTANCE_TYPE=$INSTANCE_TYPE
+AMI_ID=ami-060e277c0d4cce553
+INSTANCE_TYPE=t2.micro
 KEY_NAME=$KEY_PAIR_NAME
 SECURITY_GROUP_NAME=$SECURITY_GROUP_NAME
 
