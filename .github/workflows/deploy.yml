@@ -29,8 +29,6 @@ jobs:
           echo "SECURITY_GROUP_NAME: ${{ secrets.SECURITY_GROUP_NAME }}" >> $GITHUB_ENV
           echo "AMI_ID: ${{ secrets.IMAGE_ID }}" >> $GITHUB_ENV
           echo "INSTANCE_TYPE: ${{ secrets.INSTANCE_TYPE }}" >> $GITHUB_ENV
-
-        run: |
           chmod +x create_ec2_instance.sh install_minecraft_server.sh run_ssm_command.sh setup_minecraft_server.sh
           ./setup_minecraft_server.sh
 
