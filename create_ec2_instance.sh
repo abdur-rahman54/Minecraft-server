@@ -3,7 +3,7 @@
 # Use the existing security group from GitHub Secrets
 AMI_ID=ami-060e277c0d4cce553
 INSTANCE_TYPE=t2.micro
-KEY_NAME=$KEY_PAIR_NAME
+KEY_NAME=BossKeyPair
 SECURITY_GROUP_NAME=$SECURITY_GROUP_NAME
 
 # Creating Security Group ID
