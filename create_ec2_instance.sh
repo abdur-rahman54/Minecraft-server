@@ -9,11 +9,11 @@ SECURITY_GROUP_NAME=$SECURITY_GROUP_NAME
 # Creating Security Group ID
 SECURITY_GROUP_ID=$(aws ec2 describe-security-groups --group-names $SECURITY_GROUP_NAME --query 'SecurityGroups[0].GroupId' --output text)
 echo $SECURITY_GROUP_ID
-echo $AMI_ID
-echo $KEY_NAME
+echo "$AMI_ID"
+echo "$KEY_NAME"
 
 # Launch an EC2 instance
-INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID --count 1 --instance-type $INSTANCE_TYPE --key-name $KEY_NAME --security-group-ids $SECURITY_GROUP_ID --query 'Instances[0].InstanceId' --output text)
+INSTANCE_ID=$(aws ec2 run-instances --image-id "$AMI_ID" --count 1 --instance-type "$INSTANCE_TYPE" --key-name "$KEY_NAME" --security-group-ids $SECURITY_GROUP_ID --query 'Instances[0].InstanceId' --output text)
 
 # Wait for the instance to be running
 aws ec2 wait instance-running --instance-ids $INSTANCE_ID
