@@ -19,12 +19,12 @@ INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID --count 1 --instance-type
 aws ec2 wait instance-running --instance-ids $INSTANCE_ID
 
 # Get the public DNS name of the instance
-PUBLIC_DNS=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicDnsName' --output text)
+PUBLIC_IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
 
 echo "Instance ID: $INSTANCE_ID"
-echo "Public DNS: $PUBLIC_DNS"
+echo "Public IP: $PUBLIC_IP"
 
 # Save the instance details to a file for later use
 echo $INSTANCE_ID > instance_id.txt
-echo $PUBLIC_DNS > public_dns.txt
+echo $PUBLIC_IP > public_ip.txt
 
