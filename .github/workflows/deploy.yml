@@ -32,8 +32,8 @@ jobs:
 
         run: |
           chmod +x create_ec2_instance.sh install_minecraft_server.sh run_ssm_command.sh setup_minecraft_server.sh check.sh
+          ./check.sh
 #          ./setup_minecraft_server.sh
 
-          ./check.sh
 
 
