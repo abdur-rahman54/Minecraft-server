@@ -25,9 +25,9 @@ jobs:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS }} 
           AWS_SECRET_ACCESS: ${{ secrets.AWS_SECRET }} 
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }} 
-          KEY_PAIR_NAME: ${{ secrets.KEY_PAIR_NAME }} 
+          KEY_PAIR: ${{ secrets.KEY_PAIR_NAME }} 
           SECURITY_GROUP_NAME: ${{ secrets.SECURITY_GROUP_NAME }} 
-          IMAGE_ID: ${{ secrets.IMAGE_ID }}
+          AMI_ID: ${{ secrets.IMAGE_ID }}
           INSTANCE_TYPE: ${{ secrets.INSTANCE_TYPE }} 
 
         run: |
