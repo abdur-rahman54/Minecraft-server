@@ -1,19 +1,16 @@
 #!/bin/bash
 
 # Use the existing security group from GitHub Secrets
-AMI_ID=ami-060e277c0d4cce553
-INSTANCE_TYPE=t2.micro
-KEY_NAME=BossKeyPair
-SECURITY_GROUP_NAME=$SECURITY_GROUP_NAME
+IMAGE_ID=$IMAGE_ID
+INSTANCE_TYPE=$INSTANCE_TYPE
+KEY_NAME=$KEY_PAIR
+SECURITY_GROUP_NAME=$SECURITY_GROUP
 
 # Creating Security Group ID
 SECURITY_GROUP_ID=$(aws ec2 describe-security-groups --group-names $SECURITY_GROUP_NAME --query 'SecurityGroups[0].GroupId' --output text)
-echo "Security Group id is: $SECURITY_GROUP_ID"
-echo "Image id is: $AMI_ID"
-echo "Key Pair name is: $KEY_NAME"
 
 # Launch an EC2 instance
-INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID --count 1 --instance-type $INSTANCE_TYPE --key-name $KEY_NAME --security-group-ids $SECURITY_GROUP_ID --query 'Instances[0].InstanceId' --output text)
+INSTANCE_ID=$(aws ec2 run-instances --image-id $IMAGE_ID --count 1 --instance-type $INSTANCE_TYPE --key-name $KEY_NAME --security-group-ids $SECURITY_GROUP_ID --query 'Instances[0].InstanceId' --output text)
 
 # Wait for the instance to be running
 aws ec2 wait instance-running --instance-ids $INSTANCE_ID
